@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>창원경일고 진로별 과목 선택 가이드 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=DM+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg:#07111e; --s1:#0f1b2d; --s2:#162036; --s3:#1c2a42;
+  --b1:#1e3a5f44; --b2:#2d4a7a66;
+  --blue:#3b82f6; --blue2:#1d4ed8; --green:#10b981;
+  --yellow:#f59e0b; --red:#ef4444; --purple:#8b5cf6;
+  --text:#e2e8f0; --t2:#94a3b8; --t3:#64748b;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text);font-size:13px;}
+
+/* ── 헤더 ── */
+header{
+  background:linear-gradient(135deg,#071628 0%,#0f1b2d 100%);
+  border-bottom:1px solid var(--b2);
+  padding:20px 36px 0; position:sticky; top:0; z-index:100;
+}
+.hdr-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:14px;}
+.hdr-title h1{font-size:18px;font-weight:900;letter-spacing:-0.5px;}
+.hdr-title p{font-size:11px;color:var(--t3);margin-top:5px;font-family:'DM Mono',monospace;display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.badge{display:inline-flex;align-items:center;font-size:10px;font-family:'DM Mono',monospace;padding:2px 8px;border-radius:20px;}
+.badge.school{background:#f59e0b22;border:1px solid #f59e0b55;color:#fcd34d;}
+.badge.ver{background:#3b82f622;border:1px solid #3b82f655;color:#93c5fd;}
+.badge.data{background:#10b98122;border:1px solid #10b98155;color:#6ee7b7;}
+
+/* ── 필터바 ── */
+.filter-bar{display:flex;gap:6px;flex-wrap:wrap;align-items:center;padding-bottom:14px;}
+.fl{font-size:10px;color:var(--t3);font-family:'DM Mono',monospace;margin-right:4px;}
+.fbtn{font-family:'Noto Sans KR',sans-serif;font-size:11px;font-weight:500;padding:5px 14px;border-radius:20px;border:1px solid var(--b2);background:transparent;color:var(--t3);cursor:pointer;transition:all .15s;white-space:nowrap;}
+.fbtn:hover{border-color:var(--blue);color:var(--blue);}
+.fbtn.active{background:var(--blue2);border-color:var(--blue2);color:#fff;}
+.search-wrap{margin-left:auto;}
+.search-wrap input{font-family:'Noto Sans KR',sans-serif;font-size:12px;padding:6px 14px;border-radius:20px;border:1px solid var(--b2);background:var(--s2);color:var(--text);width:220px;outline:none;transition:all .15s;}
+.search-wrap input:focus{border-color:var(--blue);}
+.search-wrap input::placeholder{color:var(--t3);}
+
+/* ── 메인 ── */
+main{padding:24px 36px;max-width:1600px;margin:0 auto;}
+
+.notice{background:#10b98111;border:1px solid #10b98133;border-left:3px solid var(--green);border-radius:8px;padding:12px 16px;margin-bottom:22px;font-size:12px;color:var(--t2);line-height:1.9;}
+.notice strong{color:var(--text);}
+
+/* ── 그룹 섹션 ── */
+.group-sec{margin-bottom:38px;}
+.group-hdr{display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--b2);}
+.group-bar{width:3px;height:20px;border-radius:2px;}
+.group-hdr h2{font-size:14px;font-weight:900;}
+.group-cnt{font-family:'DM Mono',monospace;font-size:10px;color:var(--t3);}
+.group-note{font-size:11px;color:var(--t3);margin-left:auto;}
+
+/* ── 카드 ── */
+.cards{display:flex;flex-direction:column;gap:14px;}
+.card{background:var(--s1);border:1px solid var(--b2);border-radius:12px;overflow:hidden;transition:border-color .15s;}
+.card:hover{border-color:var(--b2);}
+
+.card-head{display:grid;grid-template-columns:200px 1fr;background:var(--s2);}
+.career-cell{padding:16px 18px;border-right:1px solid var(--b1);}
+.career-name{font-weight:900;font-size:15px;}
+.career-sub{font-size:10px;color:var(--t3);font-family:'DM Mono',monospace;margin-top:4px;}
+.career-univs{display:flex;flex-wrap:wrap;gap:3px;margin-top:10px;}
+.univ-tag{font-size:10px;padding:1px 6px;border-radius:3px;font-family:'DM Mono',monospace;white-space:nowrap;}
+.univ-tag.top{background:#f59e0b15;border:1px solid #f59e0b44;color:#fcd34d;}
+.univ-tag.nor{background:#10b98115;border:1px solid #10b98133;color:#6ee7b7;}
+
+.univ-note-cell{padding:12px 16px;font-size:11px;color:var(--t3);line-height:1.7;display:flex;align-items:center;}
+
+/* ── 과목 바디 ── */
+.card-body{padding:16px 18px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;border-top:1px solid var(--b1);}
+
+.subj-col-title{font-size:10px;color:var(--t3);text-transform:uppercase;letter-spacing:.6px;margin-bottom:8px;font-family:'DM Mono',monospace;}
+
+/* ── 과목 아이템 ── */
+.subj-item{display:flex;align-items:flex-start;gap:8px;margin-bottom:7px;}
+.subj-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:4px;}
+.subj-info{}
+.subj-name{font-size:12px;font-weight:500;line-height:1.4;}
+.subj-where{display:inline-flex;align-items:center;gap:4px;margin-top:3px;flex-wrap:wrap;}
+.where-tag{font-size:10px;padding:1px 7px;border-radius:3px;font-family:'DM Mono',monospace;white-space:nowrap;}
+.where-tag.fixed{background:#1d4ed822;border:1px solid #3b82f655;color:#93c5fd;}
+.where-tag.g3{background:#10b98115;border:1px solid #10b98133;color:#6ee7b7;}  /* 택3 */
+.where-tag.g1{background:#f59e0b15;border:1px solid #f59e0b33;color:#fbbf24;}  /* 택1 */
+.where-tag.miss{background:#ef444415;border:1px solid #ef444433;color:#fca5a5;} /* 미개설 */
+.where-tag.time{font-size:9px;background:var(--s3);border:1px solid var(--b2);color:var(--t3);}
+
+/* ── 리스크 ── */
+.risk-area{padding:10px 18px;border-top:1px solid var(--b1);display:flex;gap:8px;flex-wrap:wrap;}
+.risk-item{display:flex;align-items:flex-start;gap:5px;font-size:11px;padding:5px 10px;border-radius:6px;line-height:1.5;flex:1;min-width:240px;}
+.risk-item.danger{background:#ef444411;border:1px solid #ef444433;color:#fca5a5;}
+.risk-item.warn{background:#f59e0b11;border:1px solid #f59e0b33;color:#fcd34d;}
+.risk-icon{flex-shrink:0;}
+
+.no-results{text-align:center;padding:60px;color:var(--t3);}
+
+/* 범례 */
+
+/* ── 과목 클릭 커서 ── */
+.subj-name{font-size:12px;font-weight:500;line-height:1.4;cursor:pointer;transition:color .15s;}
+.subj-name:hover{color:#60a5fa;text-decoration:underline;}
+
+/* ── 모달 오버레이 ── */
+.modal-overlay{
+  display:none;position:fixed;inset:0;background:rgba(0,0,0,.72);
+  z-index:9999;align-items:center;justify-content:center;padding:20px;
+}
+.modal-overlay.open{display:flex;}
+.modal-box{
+  background:#0f1b2d;border:1px solid #2d4a7a88;border-radius:16px;
+  width:100%;max-width:680px;max-height:90vh;overflow-y:auto;
+  box-shadow:0 24px 60px rgba(0,0,0,.8);
+  animation:modalIn .2s ease;
+}
+@keyframes modalIn{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:none;}}
+
+.modal-hdr{
+  display:flex;align-items:flex-start;justify-content:space-between;
+  padding:22px 24px 16px;border-bottom:1px solid #1e3a5f66;position:sticky;top:0;
+  background:#0f1b2d;z-index:1;
+}
+.modal-subject-label{font-size:10px;color:#60a5fa;font-family:'DM Mono',monospace;margin-bottom:6px;letter-spacing:.6px;}
+.modal-title{font-size:20px;font-weight:900;color:#e2e8f0;}
+.modal-close{
+  background:none;border:none;color:#64748b;font-size:22px;cursor:pointer;
+  padding:0 4px;line-height:1;flex-shrink:0;margin-top:2px;
+}
+.modal-close:hover{color:#e2e8f0;}
+
+.modal-body{padding:20px 24px 28px;}
+
+.modal-section{margin-bottom:20px;}
+.modal-section-title{
+  font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;
+  color:#64748b;font-family:'DM Mono',monospace;margin-bottom:10px;
+  padding-bottom:6px;border-bottom:1px solid #1e3a5f66;
+}
+.modal-desc{font-size:13px;color:#cbd5e1;line-height:1.8;}
+.modal-table{width:100%;border-collapse:collapse;font-size:12px;margin-top:4px;}
+.modal-table tr{border-bottom:1px solid #1e3a5f44;}
+.modal-table th{text-align:left;color:#64748b;padding:7px 10px 7px 0;font-weight:500;white-space:nowrap;width:28%;}
+.modal-table td{color:#cbd5e1;padding:7px 0;line-height:1.6;}
+.modal-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;}
+.modal-chip{font-size:11px;padding:3px 10px;border-radius:12px;font-family:'DM Mono',monospace;}
+.modal-chip.career{background:#3b82f622;border:1px solid #3b82f655;color:#93c5fd;}
+.modal-chip.job{background:#10b98115;border:1px solid #10b98133;color:#6ee7b7;}
+.modal-chip.field{background:#f59e0b15;border:1px solid #f59e0b33;color:#fcd34d;}
+.modal-tag-row{display:flex;align-items:center;gap:8px;margin-top:6px;}
+.modal-type-badge{
+  display:inline-block;font-size:11px;padding:3px 10px;border-radius:4px;
+  font-family:'DM Mono',monospace;font-weight:700;
+}
+.modal-type-badge.일반{background:#3b82f622;border:1px solid #3b82f655;color:#93c5fd;}
+.modal-type-badge.진로{background:#10b98122;border:1px solid #10b98144;color:#6ee7b7;}
+.modal-type-badge.융합{background:#8b5cf622;border:1px solid #8b5cf655;color:#c4b5fd;}
+.modal-type-badge.공통{background:#f59e0b22;border:1px solid #f59e0b44;color:#fcd34d;}
+.modal-no-data{color:#475569;font-size:12px;font-style:italic;}
+.legend{display:flex;gap:16px;align-items:center;flex-wrap:wrap;font-size:11px;color:var(--t3);margin-bottom:20px;}
+.leg-item{display:flex;align-items:center;gap:5px;}
+.leg-dot{width:8px;height:8px;border-radius:50%;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hdr-top">
+    <div class="hdr-title">
+      <h1>창원경일고 진로별 과목 선택 가이드</h1>
+      <p>
+        <span class="badge school">창원경일고등학교</span>
+        <span class="badge ver">2026 입학생 편제표 연계</span>
+        <span class="badge data">22개 대학 실제 발표 기반</span>
+        <span style="color:#1e3a5f">|</span>
+        <span>2028학년도 · 2022 개정 교육과정</span>
+      </p>
+    </div>
+  </div>
+  <div class="filter-bar">
+    <span class="fl">계열 ›</span>
+    <button class="fbtn active" data-g="all">전체</button>
+    <button class="fbtn" data-g="이공">이공계열</button>
+    <button class="fbtn" data-g="의약">의약보건</button>
+    <button class="fbtn" data-g="인문사회">인문사회</button>
+    <button class="fbtn" data-g="교육">교육계열</button>
+    <button class="fbtn" data-g="예체능">예체능</button>
+    <div class="search-wrap">
+      <input type="text" id="srch" placeholder="🔍  진로명·과목명 검색">
+    </div>
+  </div>
+</header>
+
+<!-- ── 과목 모달 ── -->
+<div class="modal-overlay" id="subjectModal">
+  <div class="modal-box">
+    <div class="modal-hdr">
+      <div>
+        <div class="modal-subject-label" id="modalLabel">과목 안내</div>
+        <div class="modal-title" id="modalTitle">과목명</div>
+      </div>
+      <button class="modal-close" id="modalClose">✕</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<main>
+  <div class="notice">
+    <strong>이 가이드 활용법:</strong>
+    각 과목 옆 태그가 경일고 편제표 위치를 나타냅니다.
+    <strong style="color:#93c5fd">■ 지정</strong> = 전원 자동 이수 &nbsp;
+    <strong style="color:#6ee7b7">■ ○군·택3</strong> = 해당 군에서 3과목 선택 가능 &nbsp;
+    <strong style="color:#fbbf24">■ ○군·택1</strong> = 해당 군에서 반드시 1개만 선택 &nbsp;
+    <strong style="color:#fca5a5">■ 미개설</strong> = 경일고 편제에 없음 → 공동교육과정 확인 필요
+  </div>
+
+  <div class="legend">
+    <span class="leg-item"><span class="leg-dot" style="background:#10b981"></span>진로필수 과목</span>
+    <span class="leg-item"><span class="leg-dot" style="background:#f59e0b"></span>핵심 권장 과목</span>
+    <span class="leg-item"><span class="leg-dot" style="background:#3b82f6"></span>권장 과목</span>
+    <span class="leg-item"><span class="leg-dot" style="background:#334155"></span>대안·선택 과목</span>
+  </div>
+
+  <div id="container"></div>
+  <div class="no-results" id="noRes" style="display:none">검색 결과가 없습니다.</div>
+</main>
+
+<script>
+// ══════════════════════════════════════════════════
+// 과목 상세 안내 DB (2022 개정 교육과정 선택과목 안내서)
+// ══════════════════════════════════════════════════
+const SUBJ_DB = {
+
+  /* ────── 국어 교과 ────── */
+  '화법과 언어': {
+    label:'국어 교과', type:'일반선택',
+    desc:'초등학교 및 중학교 공통 국어와 고등학교 공통국어1·공통국어2의 듣기·말하기 및 문법 영역을 심화·확장한 과목입니다. 학생들이 다양한 담화에 능동적으로 참여하여 효과적인 의사소통 능력을 기르고, 언어 자원의 탐구·화용 원리를 탐구합니다. 국어 문법과 의사소통 맥락에서의 규범적 사용 능력을 균형 있게 발전시킵니다.',
+    core:['언어의 본질과 구조', '음운·단어·문장의 탐구', '담화와 의사소통 원리', '화법의 유형과 전략', '공손하고 격식 있는 언어 생활'],
+    careers:['국어 교사', '언어학자', '아나운서', '번역가', '작가', '출판 편집자'],
+    fields:['국어국문학', '국어교육학', '언어학', '미디어커뮤니케이션']
+  },
+  '독서와 작문': {
+    label:'국어 교과', type:'일반선택',
+    desc:'초등학교 및 중학교 국어와 고등학교 공통국어의 읽기·쓰기 영역을 심화·확장한 과목입니다. 다양한 글과 자료를 이해하고 생산하는 활동을 통해 효과적인 의사소통 능력과 창의적인 사고력을 기릅니다. 복합양식 매체 환경에서도 독서와 작문 역량을 적절하게 발휘할 수 있도록 합니다.',
+    core:['독서의 방법과 전략', '다양한 분야의 글 읽기', '글쓰기의 과정과 원리', '설명·논증·서사적 글쓰기', '매체 환경에서의 독서와 작문'],
+    careers:['작가', '편집자', '기자', '콘텐츠 크리에이터', '국어 교사', '번역가'],
+    fields:['국어국문학', '국어교육학', '문예창작학', '신문방송학']
+  },
+  '문학': {
+    label:'국어 교과', type:'일반선택',
+    desc:'초등학교 및 중학교 국어와 고등학교 공통국어1·2의 문학 영역을 심화·확장한 과목입니다. 문학 작품 수용·생산하는 능력과 인간과 세계에 대한 이해를 넓히는 것을 목표로 합니다. 문학의 중요성과 가치를 인식하고 다양한 매체와 방식으로 표현된 작품들을 두루 향유할 수 있도록 구성됩니다.',
+    core:['문학의 개념과 갈래', '한국 문학의 흐름', '문학 작품의 수용과 비평', '문학과 공동체', '문학의 창작과 생산'],
+    careers:['소설가', '시인', '문학 평론가', '국어 교사', '출판 편집자', '극작가'],
+    fields:['국어국문학', '문예창작학', '국어교육학']
+  },
+  '독서 토론과 글쓰기': {
+    label:'국어 교과', type:'진로선택',
+    desc:'독서 토론과 글쓰기는 국어 교육의 독기·쓰기 영역을 심화한 융합 선택 과목입니다. 이 과목은 다양한 분야의 책을 토대로 독서 토론을 수행하고, 학습자는 자신이 담색하는 주제와 관련하여 다양한 자료를 읽고 비판적인 안목으로 토론하여 글로 표현하는 활동을 통해 비판적 사고와 협력적 의사소통 능력을 함양하며 능동적으로 학습하는 태도를 기릅니다.',
+    core:['주제 탐구 독서 방법', '독서 토론의 방법과 절차', '논거 수집·분석', '비판적 글쓰기', '토론과 협력 학습'],
+    careers:['논술 강사', '변호사', '기자', '연구원', '국어 교사', '정책 분석가'],
+    fields:['국어교육학', '법학', '신문방송학', '철학']
+  },
+
+  /* ────── 수학 교과 ────── */
+  '대수': {
+    label:'수학 교과', type:'일반선택',
+    desc:'대수는 함수의 규칙적 변화를 이해하고 탐구하며, 다양한 사회 및 자연 현상을 수학적으로 해석하는 과목입니다. 지수·로그함수, 삼각함수, 수열 등을 다루고, 수학적 추론을 통해 규칙의 일반성을 정당화하는 능력을 기릅니다. 생활과 다양한 교과와의 연계를 통해 수학의 유용성을 인식하고 합리적 의사 결정을 할 수 있는 능력을 키웁니다.',
+    core:['지수함수와 로그함수', '삼각함수·사인 법칙·코사인 법칙', '수열(등차·등비·점화식)', '경우의 수와 이항정리'],
+    careers:['수학자', '통계학자', '금융 분석가', '데이터 사이언티스트', '수학 교사'],
+    fields:['수학과', '통계학과', '경제학과', '물리학과', '컴퓨터공학과']
+  },
+  '미적분Ⅰ': {
+    label:'수학 교과', type:'일반선택',
+    desc:'미적분Ⅰ은 사회 및 자연 현상의 변화를 수학적으로 이해하고 분석하기 위한 미적분의 기초 내용을 탐구하는 과목입니다. 극한의 개념을 통해 변화하는 현상을 직관적으로 이해하고 순간적인 변화를 분석합니다. 자연과학, 공학, 의학, 경제·경영학 등 다양한 분야의 학습을 위한 수학적 사고력과 전략 및 학문적 호기심을 키웁니다.',
+    core:['함수의 극한과 연속', '미분법(도함수, 미분의 활용)', '적분법(부정적분, 정적분)'],
+    careers:['수학자', '공학자', '물리학자', '경제학자', '데이터 사이언티스트'],
+    fields:['수학과', '물리학과', '공학계열 전반', '경제학과']
+  },
+  '확률과 통계': {
+    label:'수학 교과', type:'일반선택',
+    desc:'확률과 통계는 데이터를 기반으로 확률과 통계의 기본 개념을 이해하고 심층적으로 탐구하는 과목입니다. 다양한 상황에서의 데이터 분석과 예측을 통해 합리적인 의사 결정을 내릴 수 있습니다. 비판적 사고와 데이터 리터러시를 함양하고, 생활 및 다양한 교과와의 연결을 통해 수학의 유용성을 인식합니다.',
+    core:['경우의 수(순열·조합)', '확률(조건부 확률, 독립)', '통계(확률변수·분포, 통계적 추정)'],
+    careers:['통계학자', '데이터 분석가', '보험계리사', '마케터', '사회과학 연구자'],
+    fields:['통계학과', '수학과', '경제학과', '사회학과', '심리학과', '의학·약학']
+  },
+  '미적분Ⅱ': {
+    label:'수학 교과', type:'진로선택',
+    desc:'미적분Ⅱ 과목은 자연과 사회 현상의 이해를 위한 필수적인 미적분 내용을 폭넓게 탐구하는 과목입니다. 수열의 극한과 급수의 합, 함수와 합성함수의 미분과 적분을 효율적으로 구하는 방법을 학습하며, 다양한 현상을 수학적으로 모델링할 때 중요한 도구가 됩니다. 자연과학, 공학, 의학을 포함한 다양한 학문 분야에서의 기초를 다질 수 있습니다.',
+    core:['수열의 극한', '급수의 합', '여러 가지 함수의 미분과 적분', '도함수의 활용'],
+    careers:['수학자', '물리학자', '공학자', '항공우주 엔지니어', '소프트웨어 엔지니어'],
+    fields:['수학과', '물리학과', '공학계열 전반', '항공우주공학과', '의학·약학']
+  },
+  '기하': {
+    label:'수학 교과', type:'진로선택',
+    desc:'기하는 평면과 공간에서 나타나는 기하적 대상을 다양한 방식으로 표현하고 탐구하는 과목입니다. 원뿔을 절단하여 얻은 곡선을 대수와 연결하여 분석하고, 벡터를 이용하여 크기와 방향을 갖는 도형을 탐구하며, 기하적 대상들의 구조와 관계를 파악하는 데 도움이 됩니다. 진로와 적성에 따라 기하에 대한 지식과 기능을 확보하고 문제를 해결하여 협력과 성찰을 통해 성장할 수 있습니다.',
+    core:['이차곡선(포물선·타원·쌍곡선)', '공간도형과 공간좌표', '벡터(연산·방정식·내·외적)'],
+    careers:['건축가', '토목기사', '그래픽 디자이너', '3D 모델러', '물리학자'],
+    fields:['수학과', '건축학과', '토목공학과', '컴퓨터 그래픽스', '기계공학과']
+  },
+  '인공지능 수학': {
+    label:'수학 교과', type:'진로선택',
+    desc:'인공지능 수학은 인공지능의 데이터 처리와 의사 결정 과정에서 수학적 원리와 도구가 어떻게 활용되는지를 탐구하는 과목입니다. 인공지능의 개념과 역사, 알고리즘 이론과 수에 기반하여 빅데이터의 활용으로 새로운 가치를 창출하고, 데이터 처리와 의사 결정의 수학적 원리를 이해합니다. 인공지능 수학은 인공지능 분야의 지식을 이해하고 발전시키려는 학생들이 선택할 수 있는 과목입니다.',
+    core:['인공지능의 개념과 역사', '텍스트·이미지 데이터 처리', '예측과 최적화 수학', '인공지능과 수학 탐구'],
+    careers:['AI 연구원', '머신러닝 엔지니어', '로봇공학자', '데이터 사이언티스트'],
+    fields:['인공지능학과', '컴퓨터공학과', '데이터사이언스학과', '전자공학과']
+  },
+  '실용 통계': {
+    label:'수학 교과', type:'융합선택',
+    desc:'실용 통계는 다양한 분야에서 통계 자료를 이해하고 활용하여 합리적인 의사결정을 내리는 능력을 기르는 과목입니다. 수와 연산, 변화와 관계, 도형과 측정 등을 통해 직무 문제를 해결하고 자료를 정리·해석하여 효율적으로 처리할 수 있는 능력을 기웁니다.',
+    core:['통계적 탐구', '자료 수집과 표현', '확률분포', '통계적 추정과 검정', '회귀 분석 기초'],
+    careers:['데이터 분석가', '시장조사 연구원', '보험계리사', '공공정책 연구원'],
+    fields:['통계학과', '사회학과', '경영학과', '보건학과']
+  },
+  '직무 수학': {
+    label:'수학 교과', type:'진로선택',
+    desc:'직무 수학은 직무 상황에서 필요한 수학적 개념, 원리, 법칙을 이해하고 활용하여 문제를 해결하는 능력과 태도를 기르는 과목입니다. 수와 연산, 변화와 관계, 도형과 측정 등을 활용하여 직무 문제를 해결하고, 미래의 다양한 직무 상황을 마주하게 될 학생들이 선택할 수 있는 과목입니다.',
+    core:['수와 연산(직무 수행)', '변화와 관계(비율·비례)', '도형과 측정', '자료와 가능성'],
+    careers:['회계사', '금융 사무직', '경영지원', '서비스업 관리직', '무역 사무직'],
+    fields:['경영학과', '회계학과', '금융학과', '무역학과']
+  },
+
+  /* ────── 사회 교과 ────── */
+  '사회와 문화': {
+    label:'사회 교과', type:'일반선택',
+    desc:'사회와 문화는 개인이 사회적 존재로서 다양한 관점과 문화를 가진 타인과 상호 작용하며, 사회 구조의 영향을 받으면서도 사회를 변화시키는 주체임을 인식하도록 합니다. 학생들이 사회·문화 현상에 관심을 기지도록 하고 비판적 사고력을 통해 합리적 의사 결정 능력을 키웁니다.',
+    core:['사회·문화 현상의 이해', '개인과 사회 구조', '문화와 일상', '사회 불평등과 사회 복지', '사회 변동과 현대 사회'],
+    careers:['사회 교사', '사회 연구원', '정책 분석가', '시민단체 활동가', '저널리스트'],
+    fields:['사회학과', '문화인류학과', '정치학과', '사회복지학과', '신문방송학과']
+  },
+  '현대사회와 윤리': {
+    label:'사회 교과', type:'일반선택',
+    desc:'현대사회와 윤리는 현대 사회의 다양한 문제와 쟁점을 윤리적 관점에서 이해하고 해결하는 능력을 기르는 과목입니다. 중학교 도덕과 고등학교 통합사회의 핵심 내용을 바탕으로 윤리 문제에 대한 민감성과 추론 능력을 발달시킵니다. 생명 윤리, 성·가족 윤리, 생태 윤리 등 다양한 윤리 문제를 탐구하고 성찰합니다.',
+    core:['현대 생활과 윤리', '생명윤리·환경윤리', '과학·디지털 윤리', '민주 시민과 윤리', '평화와 공존의 윤리'],
+    careers:['윤리 교사', '사회복지사', '법조인', '상담사', '철학 연구자', '인권 활동가'],
+    fields:['철학과', '윤리교육학과', '사회복지학과', '법학과', '교육학과']
+  },
+  '세계사': {
+    label:'사회 교과', type:'일반선택',
+    desc:'세계사는 인류의 역사적 발자취를 탐구하며, 중학교 역사 학습을 기반으로 심층적인 주제 탐구를 제공합니다. 각 지역 세계의 고유한 특성과 상호 연관성을 입체적으로 탐구하며, 국민 국가의 형성과 인류의 과제 해결 방안을 모색합니다. 문화 다양성을 존중하고 현대 세계의 과제를 이해하여 해결 동찰력을 갖습니다.',
+    core:['지역 세계의 형성', '교역망의 확대', '국민 국가의 형성', '현대 세계의 과제'],
+    careers:['역사학자', '역사 교사', '박물관 큐레이터', '외교관', '문화재 전문가'],
+    fields:['역사학과', '국제관계학과', '고고학과', '정치학과']
+  },
+  '세계시민과 지리': {
+    label:'사회 교과', type:'일반선택',
+    desc:'세계시민과 지리는 세계화와 지역화의 연계, 인간과 자연의 상호작용, 에너지 및 환경 문제, 세계 여러 지역에 밀집하게 관련된 지리적 지식을 바탕으로 세계 여러 지역의 모습을 이해합니다. 인간 공동체의 구성원으로서 인류의 공동선과 지속가능한 미래를 함께 행동할 수 있는 태도를 함양합니다.',
+    core:['세계화와 지역화', '인간과 자연 환경', '에너지·자원과 지속가능한 미래', '세계의 분쟁과 평화'],
+    careers:['지리 교사', '외교관', '국제기구 전문가', '환경 컨설턴트', '도시 계획가'],
+    fields:['지리학과', '국제관계학과', '환경학과', '도시공학과']
+  },
+  '동아시아 역사 기행': {
+    label:'사회 교과', type:'진로선택',
+    desc:'동아시아 역사 기행은 동아시아의 생태환경과 문화유산을 학습하며 각 지역 간의 관계를 파악하고 진로를 탐색하는 과목입니다. 동북아시아와 동남아시아를 포함한 넓은 의미의 동아시아를 다루며, 교류와 갈등, 공존과 평화를 탐구합니다. 역사 자료의 분석 및 역사 지식을 통해 탐구 능력을 기르고, 다양한 역사 해석과 논쟁을 인식하여 타자를 이해하는 태도를 배웁니다.',
+    core:['동아시아 역사 기행 이해', '교류·갈등의 역사', '침략과 저항의 역사', '평화와 공존의 역사'],
+    careers:['역사학자', '역사 교사', '박물관 큐레이터', '외교관', '번역가'],
+    fields:['역사학과', '동양사학과', '국제관계학과', '동아시아학과']
+  },
+  '법과 사회': {
+    label:'사회 교과', type:'진로선택',
+    desc:'법과 사회는 민주주의와 법치주의, 복지국가를 지향하는 우리나라에서 법을 이해하고 민주시민의 자질을 함양하기 위해 개설된 과목입니다. 학생들이 법 관련 분야의 진로를 탐색하는 데 도움을 주며, 민주주의와 법치주의의 상호 관계를 탐구하고 국가기관의 권한과 역할을 이해합니다. 법 관련 문제를 분석하고 해결하는 능력을 기웁니다.',
+    core:['개인 생활과 법', '국가 생활과 법', '사회 생활과 법', '학교 생활과 법'],
+    careers:['법조인', '사회 교사', '행정 공무원', '인권 활동가', '법무 사무직'],
+    fields:['법학과', '행정학과', '사회학과', '정치학과']
+  },
+  '경제': {
+    label:'사회 교과', type:'진로선택',
+    desc:'경제는 경제적 사고력과 문제 해결력을 기르기 위해 개설된 과목입니다. 체계적인 경제 지식과 사고력을 바탕으로 경제적 역할을 수행하는 민주시민의 자질을 함양합니다. 경제학의 기본 원리와 이론을 이해하고 현실의 경제 문제를 사례를 통해 생각하며, 균형적인 경제 인식을 형성합니다.',
+    core:['경제학과 경제 문제', '미시 경제(시장 원리)', '거시 경제(국민 경제)', '국제 경제와 무역'],
+    careers:['경제 교사', '금융인', '경제 연구원', '공무원', '회계사', '경영 컨설턴트'],
+    fields:['경제학과', '경영학과', '금융학과', '통계학과', '국제통상학과']
+  },
+  '윤리와 사상': {
+    label:'사회 교과', type:'일반선택',
+    desc:'윤리와 사상은 학습자의 삶에서 직면할 수 있는 윤리적 물음을 중심으로 한국 및 동·서양의 윤리 사상과 사회사상의 주요 이론과 의미를 체계적으로 학습합으로써 윤리적 탐구와 성찰 및 문제 해결 능력을 기르기 위한 과목입니다.',
+    core:['한국 윤리 사상', '동양 윤리 사상', '서양 윤리 사상', '사회·정치 사상'],
+    careers:['윤리 교사', '철학 연구자', '법조인', '사회복지사', '종교지도자', '상담사'],
+    fields:['철학과', '윤리교육학과', '법학과', '종교학과', '상담심리학과']
+  },
+  '인간과 심리': {
+    label:'사회 교과', type:'진로선택',
+    desc:'인간과 심리는 심리학의 주요 주제와 개념, 이론을 탐구함으로써 인간의 행동과 정신 과정을 이해하는 과목입니다. 심리학 연구 방법을 익히고 심리학의 다양한 분야(인지·사회·발달·임상 등)를 탐구하며 일상의 심리적 현상을 과학적으로 분석합니다.',
+    core:['심리학의 기초', '인간 발달 심리', '인지·지각 심리', '사회 심리', '이상 심리와 상담'],
+    careers:['심리학자', '상담사', '정신건강 전문가', '인사관리자', '사회복지사'],
+    fields:['심리학과', '상담심리학과', '사회복지학과', '교육학과']
+  },
+
+  /* ────── 과학 교과 ────── */
+  '물리학': {
+    label:'과학 교과', type:'일반선택',
+    desc:'물리학은 일상생활이나 자연 현상, 첨단 과학기술 속에 물리학의 기본 법칙이 담겨 있음을 알고 이들 현상을 이해하고 탐구할 수 있는 능력을 바탕으로 민주 시민으로서 개인과 사회 문제를 과학적으로 찰찰하고 참여·실천하는 역할 함양에 중점을 둡니다. 힘과 에너지, 전기와 자기, 빛과 물질 영역으로 구성됩니다.',
+    core:['힘과 에너지', '전기와 자기(전자기장)', '빛과 물질(광학·파동)'],
+    careers:['물리 교사', '전자공학자', '의료 물리학자', '항공우주 엔지니어', 'IT 기술 연구원'],
+    fields:['물리학과', '전자공학과', '기계공학과', '항공우주공학과', '의용공학과']
+  },
+  '화학': {
+    label:'과학 교과', type:'일반선택',
+    desc:'화학은 일상생활이나 자연 현상에 적용되는 물질 세계의 기본 법칙을 다루고, 개인과 사회의 문제를 해결할 때 필요한 화학적 소양과 문제해결력을 기르는 것을 목적으로 합니다. 반도체, 전지, 의약품, 화장품 등 현대인의 삶과 곤존하는 대부분의 영역에서 화학을 직·간접적으로 활용하고 있습니다.',
+    core:['화학의 언어(원소·주기율표)', '물질의 구조와 성질', '화학 평형', '예들없는 화학 반응'],
+    careers:['화학자', '화학 교사', '제약 연구원', '신소재 연구원', '환경 분석가'],
+    fields:['화학과', '화학공학과', '재료공학과', '약학과', '환경공학과']
+  },
+  '생명과학': {
+    label:'과학 교과', type:'일반선택',
+    desc:'생명과학은 생명과학 탐구능력과 태도를 함양하며, 생명과학 분야의 기본 개념을 이해하고, 자연과 일상생활에서 접하게 되는 다양한 생명 현상에 대한 의문점들을 과학적이고 창의적으로 해결하는 역할 함양에 중점을 둡니다. 생명 시스템의 구성, 항상성과 몸의 조절, 생명의 연속성과 다양성을 다룹니다.',
+    core:['생명 시스템의 구성', '항상성과 몸의 조절', '생명의 연속성과 다양성'],
+    careers:['생명과학 교사', '의사', '약사', '바이오 연구원', '간호사', '수의사'],
+    fields:['생명과학과', '의학과', '약학과', '간호학과', '식품영양학과', '생물교육학과']
+  },
+  '지구과학': {
+    label:'과학 교과', type:'일반선택',
+    desc:'지구과학은 모든 학생이 지구시스템과학과 행성우주과학 분야의 기본 개념을 익히고 과학 탐구 능력과 태도를 길러, 자연과 일상생활에서 접하는 지구와 우주에 관련 현상을 과학적으로 이해하고, 민주 시민으로서 개인과 사회 문제를 찰찰하고 참여·실천하는 역할 함양에 중점을 둡니다. 유체 지구, 고체 지구, 천체·우주 영역을 다룹니다.',
+    core:['대기와 해양의 상호작용', '지구의 역사와 반도의 탐색', '태양계와 우주'],
+    careers:['지구과학 교사', '기상학자', '지질학자', '환경 전문가', '천문학자'],
+    fields:['지구과학과', '환경과학과', '지질학과', '기상학과', '지구시스템학과']
+  },
+  '역학과 에너지': {
+    label:'과학 교과', type:'진로선택',
+    desc:'역학과 에너지는 역학의 기본 법칙을 이해하고 다양한 물체의 운동 및 열 현상과 역기관, 탄성파 등에 대해 학문적 흥미와 호기심을 갖도록 하며, 물리학 탐구 능력과 과학적 태도를 함양합니다. 시공간과 운동, 열과 에너지, 탄성파와 소리의 세 영역으로 구성됩니다.',
+    core:['시공간과 운동(뉴턴 역학)', '열과 에너지(열역학 법칙)', '탄성파와 소리'],
+    careers:['물리학자', '기계공학자', '항공우주 엔지니어', '에너지 연구원', '음향 엔지니어'],
+    fields:['물리학과', '기계공학과', '항공우주공학과', '에너지공학과', '음향공학과']
+  },
+  '전자기와 양자': {
+    label:'과학 교과', type:'진로선택',
+    desc:'전자기와 양자는 물질의 전자기적 성질과 빛에 대해 거시 세계의 현상에서 시작하여 원자 수준의 크기에서 벌어지는 현상 등과 같이 인간의 지각 범위를 초월하는 미시 세계로 이야기가 따라 전자기적 상호작용, 빛과 정보 통신, 양자와 미시 세계의 세 영역으로 구성됩니다.',
+    core:['전기적 상호작용', '빛과 정보 통신(레이저·광통신)', '양자와 미시 세계(반도체·소자)'],
+    careers:['전자공학자', '반도체 연구원', '광학 엔지니어', 'IT 연구원', '의공학자'],
+    fields:['전자공학과', '반도체공학과', '물리학과', '광공학과', 'IT융합학과']
+  },
+  '물질과 에너지': {
+    label:'과학 교과', type:'진로선택',
+    desc:'물질과 에너지는 인류 문명의 발전과 우리 삶의 질 향상에 기여해 온 물질 현상과 에너지의 관계에 포함된 화학 개념과 법칙을 이해하고, 과학적 탐구 능력과 태도를 함양합니다. 물질의 세 가지 상태, 용액의 성질, 화학 변화의 자발성, 반응 속도를 다루며, 화학 관련 진로 설정에 필요한 역량을 기릅니다.',
+    core:['물질의 세 가지 상태', '용액의 성질', '화학 변화의 자발성', '반응 속도'],
+    careers:['화학자', '화학공학자', '제약 연구원', '신소재 개발자', '식품 화학자'],
+    fields:['화학과', '화학공학과', '재료공학과', '약학과', '식품공학과']
+  },
+  '세포와 물질대사': {
+    label:'과학 교과', type:'진로선택',
+    desc:'세포와 물질대사에서는 생명의 기본 단위인 세포와 생명체에서 일어나는 다양한 생명 현상에 대한 학문적 흥미와 호기심을 갖도록 하며, 자연과 일상생활에서 접하게 되는 다양한 생명 현상에 대한 의문점들을 과학적이고 창의적으로 해결하는 생명과학의 학문적 소양을 기릅니다. 세포, 물질대사와 에너지, 세포 호흡과 광합성의 3개 영역으로 구성됩니다.',
+    core:['세포(구조와 기능)', '물질대사와 에너지(대사 경로)', '세포 호흡과 광합성'],
+    careers:['생명과학 연구원', '의사', '약사', '바이오 엔지니어', '생화학자'],
+    fields:['생명과학과', '의학과', '약학과', '생화학과', '바이오공학과']
+  },
+  '생물의 유전': {
+    label:'과학 교과', type:'진로선택',
+    desc:'생물의 유전에서는 생물의 유전 관련 다양한 생명 현상에 대한 학문적 흥미와 호기심을 갖도록 하며, 생명과학 탐구능력과 태도를 함양하고, 생명과학의 학문적 소양을 기릅니다. 유전자와 유전 물질, 유전자의 발현, 생명공학기술의 3개 영역으로 구성됩니다.',
+    core:['유전자와 유전 물질(DNA 구조)', '유전자의 발현(전사·번역)', '생명공학기술'],
+    careers:['유전공학 연구원', '의사', '약학 연구원', '바이오인포매틱스 전문가'],
+    fields:['생명과학과', '유전공학과', '의학과', '약학과', '농업생명과학과']
+  },
+  '지구시스템과학': {
+    label:'과학 교과', type:'진로선택',
+    desc:'지구시스템과학에서는 지구시스템의 구성 및 구성 권역들의 상호작용에 대한 기본 개념을 이해하고, 지구과학 탐구 능력과 태도를 길러, 시공간적으로 밀접하게 관련된 생물권을 포함한 지구시스템 관련 현상을 과학적으로 이해하고, 민주 시민으로서 개인과 사회 문제를 과학적으로 이해하고 참여·실천하는 역할 함양에 중점을 둡니다. 지구 탄생과 생동하는 지구, 해수의 운동, 강수 과정과 대기의 운동 등을 다룹니다.',
+    core:['지구 탄생과 생동하는 지구', '해수의 운동(해류·파도)', '강수 과정과 대기의 운동'],
+    careers:['지구과학 교사', '기상학자', '해양학자', '환경 연구원', '지질학자'],
+    fields:['지구시스템학과', '해양학과', '대기과학과', '환경과학과', '지질학과']
+  },
+  '화학 반응의 세계': {
+    label:'과학 교과', type:'진로선택',
+    desc:'화학 반응의 세계는 다양한 화학 반응과 관련된 지식과 탐구 방법을 학습함으로써 과학적 탐구 능력과 태도를 함양하여 화학 관련 문제를 과학적이고 창의적으로 해결하는 능력을 기릅니다. 산과 염기, 산화·환원 반응, 탄소 화합물의 반응을 핵심 내용으로 다룹니다.',
+    core:['산·염기 반응(중화 반응)', '산화·환원 반응(전기화학)', '탄소 화합물의 반응(유기화학)'],
+    careers:['화학자', '제약 연구원', '화학공학자', '신소재 개발자', '환경 분석가'],
+    fields:['화학과', '화학공학과', '약학과', '재료공학과', '환경공학과']
+  },
+  '융합과학 탐구': {
+    label:'과학 교과', type:'융합선택',
+    desc:'융합과학 탐구는 빅데이터, 인공지능, 드믁실험 등을 이용한 탐구 활동을 통해 융합과학의 의미와 필요성을 이해하고, 유용한 탐구 주제의 선정과 과학 문제의 해결을 위한 융합과학적 접근 방법을 탐색할 수 있는 기회를 제공합니다. 다양한 문제에 접근하여 융합적으로 창의적으로 문제를 해결하는 능력을 기릅니다.',
+    core:['융합과학적 탐구 주제 선정', '탐구 계획 수립', '데이터 수집·분석', '융합 탐구 보고'],
+    careers:['과학 연구원', '데이터 과학자', '과학 교사', 'R&D 연구원', '과학 저술가'],
+    fields:['이공계열 전반', '데이터사이언스학과', '과학교육학과']
+  },
+  '기후변화와 환경생태': {
+    label:'과학 교과', type:'융합선택',
+    desc:'기후변화와 환경생태는 기후변화와 환경생태의 상호작용에 대한 이해를 바탕으로 미래 사회에 필요한 과학적 소양을 함양하기 위한 과목입니다. 기후변화가 초래하는 학경과 생태의 다양한 변화를 이해하여, 기후위기에 대응하는 인간의 노력을 능동적으로 탐구합니다.',
+    core:['기후 변화의 원인과 영향', '생태계와 생물 다양성', '기후변화와 지속가능한 미래', '환경 보전 활동'],
+    careers:['환경 연구원', '기후 정책 전문가', '생태학자', '환경 교사', '지속가능성 컨설턴트'],
+    fields:['환경학과', '지구환경학과', '생태학과', '기후변화학과', '환경정책학과']
+  },
+
+  /* ────── 기술·정보 교과 ────── */
+  '정보': {
+    label:'기술·정보 교과', type:'일반선택',
+    desc:'정보 과목은 데이터를 수집·처리하여 새로운 정보를 생성하고 활용하는 컴퓨팅 사고력과 문제 해결 능력을 기르는 과목입니다. 데이터 분석, 알고리즘 설계, 프로그래밍 실습을 통해 디지털 사회에서 필요한 정보 처리 역량을 함양합니다.',
+    core:['데이터와 정보', '알고리즘과 프로그래밍', '인공지능과 미래 사회', '디지털 문화'],
+    careers:['소프트웨어 개발자', 'AI 연구원', '데이터 분석가', '정보 교사', '시스템 관리자'],
+    fields:['컴퓨터공학과', '정보통신공학과', '인공지능학과', '소프트웨어학과']
+  },
+  '인공지능 기초': {
+    label:'기술·정보 교과', type:'진로선택',
+    desc:'인공지능 기초는 인공지능 개념과 원리, 다양한 인공지능 기술과 도구를 이해하고 활용하는 능력을 기르는 과목입니다. 머신러닝, 딥러닝의 기초 개념과 함께 다양한 AI 응용 사례를 분석하고 간단한 AI 모델을 직접 구성해 보는 실습을 포함합니다.',
+    core:['인공지능의 이해', '머신러닝 기초', '딥러닝 기초', 'AI 활용과 윤리'],
+    careers:['AI 연구원', '머신러닝 엔지니어', '데이터 과학자', '로봇공학자'],
+    fields:['인공지능학과', '컴퓨터공학과', '데이터사이언스학과']
+  },
+
+  /* ────── 교양 교과 ────── */
+  '생태와 환경': {
+    label:'교양 교과', type:'진로선택',
+    desc:'생태와 환경은 생태계의 구성과 기능, 환경 문제의 원인과 해결 방안을 탐구하는 과목입니다. 자연 생태계와 인간 사회의 상호 관계를 이해하고, 생태 감수성과 환경 시민성을 키우며 지속가능한 사회를 위한 실천 역량을 기릅니다.',
+    core:['생태계의 구성과 기능', '환경 문제와 원인', '지속가능한 발전', '환경 보전 실천'],
+    careers:['환경 교사', '환경 연구원', '환경 컨설턴트', '생태 해설사', 'NGO 활동가'],
+    fields:['환경학과', '생태학과', '지구환경학과', '산림학과']
+  },
+  '미술 감상과 비평': {
+    label:'예술 교과', type:'일반선택',
+    desc:'미술 감상과 비평은 다양한 시대와 문화권의 미술 작품을 심층적으로 감상하고 비평하는 능력을 기르는 과목입니다. 미술사와 미술 비평의 관점에서 작품을 분석하고, 자신의 미적 감수성과 비평적 시각을 발전시킵니다.',
+    core:['미술사의 흐름', '미술 비평의 방법', '시대별·문화권별 미술', '현대 미술의 이해'],
+    careers:['미술 교사', '큐레이터', '미술 비평가', '갤러리 매니저', '문화재 전문가'],
+    fields:['미술학과', '미술교육학과', '미술사학과', '문화예술경영학과']
+  },
+  '음악 감상과 비평': {
+    label:'예술 교과', type:'일반선택',
+    desc:'음악 감상과 비평은 다양한 음악 장르와 시대의 작품을 심층적으로 감상하고 비평하는 능력을 기르는 과목입니다. 음악의 구성 요소와 역사적·문화적 맥락을 이해하고, 음악적 감수성과 비평적 사고를 발전시킵니다.',
+    core:['음악의 구성 요소', '음악사의 흐름', '다양한 장르 감상', '음악 비평과 표현'],
+    careers:['음악 교사', '음악 평론가', '음악 프로듀서', '방송·미디어 전문가'],
+    fields:['음악학과', '음악교육학과', '실용음악학과', '문화예술경영학과']
+  },
+
+  /* ────── 영어 교과 ────── */
+  '영어Ⅰ': {
+    label:'영어 교과', type:'일반선택',
+    desc:'영어Ⅰ은 공통영어1·2를 기반으로 중학교에서 배운 언어 지식과 기능을 발전시키고 영어 의사소통 능력을 높이는 과목입니다. 다양한 주제와 소재의 글을 통해 독해 능력과 쓰기 능력을 함께 개발하며, 언어의 구조와 어휘를 확장합니다.',
+    core:['다양한 주제 독해', '영어 어휘·구문 확장', '의사소통 전략', '쓰기와 표현'],
+    careers:['영어 교사', '번역가', '통역사', '외교관', '국제 비즈니스 전문가'],
+    fields:['영어영문학과', '영어교육학과', '통번역학과', '국제학과']
+  },
+  '영어Ⅱ': {
+    label:'영어 교과', type:'일반선택',
+    desc:'영어Ⅱ는 영어Ⅰ을 이수한 후 더 높은 수준의 영어 텍스트를 이해하고 다양한 상황에서 영어를 유창하게 사용하는 능력을 기르는 과목입니다. 복잡한 주제와 구조의 글을 통해 비판적 독해와 창의적 글쓰기 역량을 강화합니다.',
+    core:['심화 독해와 분석', '고급 영어 표현', '비판적 사고와 글쓰기', '다양한 영어 문화'],
+    careers:['영어 교사', '번역가', '통역사', '글로벌 기업인', '외교관'],
+    fields:['영어영문학과', '영어교육학과', '통번역학과', '국제경영학과']
+  },
+  '영어 독해와 작문': {
+    label:'영어 교과', type:'일반선택',
+    desc:'영어 독해와 작문은 다양한 목적과 맥락에 맞게 글을 읽고 쓰는 실용적인 영어 능력을 기르는 과목입니다. 학술적 텍스트, 실용문 등 다양한 유형의 글을 분석하고 학습자 스스로 논리적이고 설득력 있는 글을 작성하는 능력을 함양합니다.',
+    core:['독해 전략과 분석', '다양한 유형의 글쓰기', '논리적 글쓰기', '영어 어법과 문체'],
+    careers:['영어 교사', '번역가', '작가', '학술 연구자', '국제 비즈니스 전문가'],
+    fields:['영어영문학과', '영어교육학과', '통번역학과']
+  },
+};
+
+// ── 모달 렌더 함수 ──
+function renderModal(subjectName) {
+  const data = SUBJ_DB[subjectName];
+  const modal = document.getElementById('subjectModal');
+  const title = document.getElementById('modalTitle');
+  const label = document.getElementById('modalLabel');
+  const body  = document.getElementById('modalBody');
+
+  title.textContent = subjectName;
+
+  if (!data) {
+    label.textContent = '과목 안내';
+    body.innerHTML = `
+      <div class="modal-section">
+        <p class="modal-no-data">이 과목의 상세 안내 정보는 준비 중입니다.<br>대전시교육청 <em>2022 개정 교육과정 선택 과목 안내서</em>를 참고해 주세요.</p>
+      </div>`;
+  } else {
+    label.textContent = data.label + ' · ' + data.type;
+    const typeClass = data.type.replace('선택','').trim();
+    body.innerHTML = `
+      <div class="modal-section">
+        <div class="modal-section-title">📋 과목 개요</div>
+        <div class="modal-tag-row">
+          <span class="modal-type-badge ${typeClass}">${data.type}</span>
+        </div>
+        <p class="modal-desc" style="margin-top:12px">${data.desc}</p>
+      </div>
+      <div class="modal-section">
+        <div class="modal-section-title">📚 핵심 학습 내용</div>
+        <ul style="padding-left:18px;color:#cbd5e1;font-size:13px;line-height:2;">
+          ${data.core.map(c=>`<li>${c}</li>`).join('')}
+        </ul>
+      </div>
+      <div class="modal-section">
+        <div class="modal-section-title">🎓 관련 학과</div>
+        <div class="modal-chips">
+          ${data.fields.map(f=>`<span class="modal-chip field">${f}</span>`).join('')}
+        </div>
+      </div>
+      <div class="modal-section">
+        <div class="modal-section-title">💼 관련 직업</div>
+        <div class="modal-chips">
+          ${data.careers.map(c=>`<span class="modal-chip job">${c}</span>`).join('')}
+        </div>
+      </div>
+    `;
+  }
+  modal.classList.add('open');
+}
+
+// 모달 닫기
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('modalClose').addEventListener('click', () => {
+    document.getElementById('subjectModal').classList.remove('open');
+  });
+  document.getElementById('subjectModal').addEventListener('click', e => {
+    if (e.target === document.getElementById('subjectModal')) {
+      document.getElementById('subjectModal').classList.remove('open');
+    }
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') document.getElementById('subjectModal').classList.remove('open');
+  });
+});
+
+// ── 경일고 편제 위치 DB ──
+const KJLOC = {
+  // 지정 과목
+  '대수':         { tag:'지정', type:'fixed', time:'2-1' },
+  '미적분Ⅰ':     { tag:'지정', type:'fixed', time:'2-2' },
+  '확률과 통계':  { tag:'지정', type:'fixed', time:'3-1' },
+  '화법과 언어':  { tag:'지정', type:'fixed', time:'2-2' },
+  '독서와 작문':  { tag:'지정', type:'fixed', time:'3-1' },
+  '문학':         { tag:'지정', type:'fixed', time:'2-1' },
+  '영어Ⅰ':       { tag:'지정', type:'fixed', time:'2-1' },
+  '영어Ⅱ':       { tag:'지정', type:'fixed', time:'2-2' },
+  '영어 독해와 작문':{ tag:'지정', type:'fixed', time:'3-1' },
+  '통합과학':     { tag:'지정', type:'fixed', time:'1학년' },
+  '한국사':       { tag:'지정', type:'fixed', time:'1학년' },
+  '통합사회':     { tag:'지정', type:'fixed', time:'1학년' },
+
+  // A군 택1 2-1
+  '인공지능 수학': { tag:'A군·택1', type:'g1', time:'2-1' },
+  '실용 통계':     { tag:'A군·택1', type:'g1', time:'2-1' },
+
+  // B군 택3 2-1
+  '물리학':        { tag:'B군·택3', type:'g3', time:'2-1' },
+  '화학':          { tag:'B군·택3', type:'g3', time:'2-1' },
+  '생명과학':      { tag:'B군·택3', type:'g3', time:'2-1' },
+  '지구과학':      { tag:'B군·택3', type:'g3', time:'2-1' },
+  '사회와 문화':   { tag:'B군·택3', type:'g3', time:'2-1' },
+  '현대사회와 윤리':{ tag:'B군·택3', type:'g3', time:'2-1' },
+  '세계사':        { tag:'B군·택3', type:'g3', time:'2-1' },
+  '법과 사회':     { tag:'B군·택3', type:'g3', time:'2-1' },
+  '세계시민과 지리':{ tag:'B군·택3', type:'g3', time:'2-1' },
+
+  // D군 택1 2-2
+  '기하':           { tag:'D군·택1', type:'g1', time:'2-2' },
+  '독서 토론과 글쓰기':{ tag:'D군·택1', type:'g1', time:'2-2' },
+
+  // E군 택3 2-2
+  '역학과 에너지':  { tag:'E군·택3', type:'g3', time:'2-2' },
+  '물질과 에너지':  { tag:'E군·택3', type:'g3', time:'2-2' },
+  '세포와 물질대사':{ tag:'E군·택3', type:'g3', time:'2-2' },
+  '지구시스템과학': { tag:'E군·택3', type:'g3', time:'2-2' },
+  '경제':           { tag:'E군·택3', type:'g3', time:'2-2' },
+  '정치':           { tag:'E군·택3', type:'g3', time:'2-2' },
+  '윤리와 사상':    { tag:'E군·택3', type:'g3', time:'2-2' },
+  '동아시아 역사 기행':{ tag:'E군·택3', type:'g3', time:'2-2' },
+  '도시의 미래 탐구':{ tag:'E군·택3', type:'g3', time:'2-2' },
+
+  // F군 택1 2-2
+  '인공지능 기초':  { tag:'F군·택1', type:'g1', time:'2-2' },
+  '로봇과 공학세계':{ tag:'F군·택1', type:'g1', time:'2-2' },
+
+  // G군 택1 1-1
+  '정보':           { tag:'G군·택1', type:'g1', time:'1-1' },
+  '기술·가정':      { tag:'G군·택1', type:'g1', time:'1-1' },
+
+  // H군 택1 3-1
+  '미적분Ⅱ':       { tag:'H군·택1', type:'g1', time:'3-1' },
+  '경제 수학':      { tag:'H군·택1', type:'g1', time:'3-1' },
+  '언어생활 탐구':  { tag:'H군·택1', type:'g1', time:'3-1' },
+
+  // I군 택3 3-1
+  '전자기와 양자':  { tag:'I군·택3', type:'g3', time:'3-1' },
+  '화학 반응의 세계':{ tag:'I군·택3', type:'g3', time:'3-1' },
+  '생물의 유전':    { tag:'I군·택3', type:'g3', time:'3-1' },
+  '행성우주과학':   { tag:'I군·택3', type:'g3', time:'3-1' },
+  '물리학 실험':    { tag:'I군·택3', type:'g3', time:'3-1' },
+  '화학 실험':      { tag:'I군·택3', type:'g3', time:'3-1' },
+  '생명과학 실험':  { tag:'I군·택3', type:'g3', time:'3-1' },
+  '한국지리 탐구':  { tag:'I군·택3', type:'g3', time:'3-1' },
+  '금융과 경제생활':{ tag:'I군·택3', type:'g3', time:'3-1' },
+  '사회문제 탐구':  { tag:'I군·택3', type:'g3', time:'3-1' },
+
+  // K군 택1 3-1
+  '생태와 환경':    { tag:'K군·택1', type:'g1', time:'3-1' },
+  '인간과 심리':    { tag:'K군·택1', type:'g1', time:'3-1' },
+
+  // L군 택1 3-2
+  '고급 미적분':    { tag:'L군·택1', type:'g1', time:'3-2' },
+  '매체 의사소통':  { tag:'L군·택1', type:'g1', time:'3-2' },
+
+  // M군 택3 3-2
+  '융합과학 탐구':  { tag:'M군·택3', type:'g3', time:'3-2' },
+  '과학의 역사와 문화':{ tag:'M군·택3', type:'g3', time:'3-2' },
+  '기후변화와 환경생태':{ tag:'M군·택3', type:'g3', time:'3-2' },
+  '여행지리':       { tag:'M군·택3', type:'g3', time:'3-2' },
+  '윤리문제 탐구':  { tag:'M군·택3', type:'g3', time:'3-2' },
+
+  // J군
+  '음악 감상과 비평':{ tag:'J군·택1', type:'g1', time:'3학년' },
+  '미술 감상과 비평':{ tag:'J군·택1', type:'g1', time:'3학년' },
+};
+
+function getLoc(name) {
+  // 부분 매칭
+  for (const [key, val] of Object.entries(KJLOC)) {
+    if (name.includes(key) || key.includes(name.split('(')[0].trim())) return val;
+  }
+  return null;
+}
+
+function whereTag(subjectName) {
+  const loc = getLoc(subjectName);
+  if (!loc) return `<span class="where-tag miss">미개설</span>`;
+  return `<span class="where-tag ${loc.type}">${loc.tag}</span><span class="where-tag time">${loc.time}</span>`;
+}
+
+const dotColor = { must:'#10b981', key:'#f59e0b', nice:'#3b82f6', neutral:'#334155' };
+
+// ── 진로 데이터 ──
+const groups = [
+ { id:'이공', label:'이공계열', color:'#3b82f6',
+   note:'수학 위계: 대수·미적분Ⅰ·확률과통계(지정) → D군 기하 → H군 미적분Ⅱ',
+   careers:[
+    { name:'컴퓨터·AI·소프트웨어', sub:'CS / AI / 데이터사이언스',
+      univs:{top:['고려대','서울대'],nor:['경희대','중앙대','서울시립대','광운대']},
+      univNote:'고려대: 미적분Ⅱ·기하 / 경희대: 대수~미적분Ⅱ·기하+인공지능수학',
+      core:[
+        {name:'미적분Ⅱ', dot:'must'}, {name:'기하', dot:'must'},
+        {name:'대수', dot:'key'}, {name:'미적분Ⅰ', dot:'key'}, {name:'확률과 통계', dot:'key'},
+      ],
+      rec:[{name:'인공지능 수학', dot:'nice'},{name:'물리학', dot:'nice'},{name:'정보', dot:'nice'}],
+      alt:[{name:'인공지능 기초', dot:'neutral'}],
+      risk:[
+        {level:'warn', text:'H군 택1 — 미적분Ⅱ 선택 시 경제수학 포기. 이공계 지망이면 미적분Ⅱ 필수'},
+        {level:'warn', text:'D군 택1 — 기하 선택 시 국어·영어 과목 포기. 이공계 확정이면 기하 선택'},
+      ]
+    },
+    { name:'전기·전자·반도체공학', sub:'반도체 / 회로 / 통신 / 디스플레이',
+      univs:{top:['고려대','서울대'],nor:['경희대','중앙대','서울시립대','광운대','부산대']},
+      univNote:'고려대: 미적분Ⅱ·기하+역학과에너지·전자기와양자 中 2개 / 중앙대: 미적분Ⅱ·기하+물리학·화학',
+      core:[
+        {name:'미적분Ⅱ', dot:'must'},{name:'기하', dot:'must'},
+        {name:'역학과 에너지', dot:'must'},{name:'전자기와 양자', dot:'must'},
+      ],
+      rec:[{name:'물리학', dot:'key'},{name:'물질과 에너지', dot:'nice'},{name:'확률과 통계', dot:'nice'}],
+      alt:[{name:'물리학 실험', dot:'neutral'}],
+      risk:[
+        {level:'danger', text:'역학과 에너지(E군·택3) + 전자기와 양자(I군·택3) — 경일고에서 동시 이수 가능. 반드시 선택 목록에 포함'},
+        {level:'warn', text:'D군·H군 모두 택1 — 기하+미적분Ⅱ 둘 다 이수하려면 각각 선택 필요'},
+      ]
+    },
+    { name:'기계·로봇·항공우주공학', sub:'자동차 / 항공 / 제조 / 로봇',
+      univs:{top:['고려대','서울대'],nor:['경희대','중앙대','부산대','충남대','아주대']},
+      univNote:'경희대: 대수~미적분Ⅱ·기하+물리학·화학·역학과에너지·전자기와양자',
+      core:[
+        {name:'미적분Ⅱ', dot:'must'},{name:'기하', dot:'must'},
+        {name:'역학과 에너지', dot:'must'},{name:'전자기와 양자', dot:'must'},
+      ],
+      rec:[{name:'물리학', dot:'key'},{name:'물질과 에너지', dot:'nice'}],
+      alt:[{name:'물리학 실험', dot:'neutral'}],
+      risk:[
+        {level:'danger', text:'항공우주: 기하(벡터) 비중 높음 — D군 택1에서 반드시 기하 선택'},
+        {level:'warn', text:'역학과에너지(E군·택3)+전자기와양자(I군·택3) 경일고 동시 이수 가능 ✅'},
+      ]
+    },
+    { name:'화학공학·신소재공학', sub:'고분자 / 정밀화학 / 신소재 / 에너지',
+      univs:{top:['고려대','서울대'],nor:['경희대','중앙대','부산대','충남대']},
+      univNote:'고려대 화공: 미적분Ⅱ·기하+역학·물질과에너지·화반 中 2개 / 중앙대: 미적분Ⅱ·기하+화학+물질과에너지·화반',
+      core:[
+        {name:'미적분Ⅱ', dot:'must'},{name:'기하', dot:'must'},
+        {name:'물질과 에너지', dot:'must'},{name:'화학 반응의 세계', dot:'must'},
+      ],
+      rec:[{name:'화학', dot:'key'},{name:'역학과 에너지', dot:'nice'},{name:'화학 실험', dot:'nice'}],
+      alt:[{name:'물리학', dot:'neutral'}],
+      risk:[
+        {level:'warn', text:'화학(B군·택3) → 물질과에너지(E군·택3) → 화학반응의세계(I군·택3) — 위계 준수하며 동시 이수 가능 ✅'},
+      ]
+    },
+    { name:'수학·통계학', sub:'순수수학 / 금융수학 / 데이터',
+      univs:{top:['고려대','서울대'],nor:['경희대','부산대','충남대','서울시립대']},
+      univNote:'고려대: 미적분Ⅱ·기하 필수 / 부산대: 확률과통계·기하·미적분Ⅱ 中 2개 이상',
+      core:[
+        {name:'미적분Ⅱ', dot:'must'},{name:'기하', dot:'must'},{name:'확률과 통계', dot:'must'},
+        {name:'대수', dot:'key'},{name:'미적분Ⅰ', dot:'key'},
+      ],
+      rec:[{name:'인공지능 수학', dot:'nice'}],
+      alt:[{name:'고급 미적분', dot:'neutral'}],
+      risk:[
+        {level:'warn', text:'수학 전 과목 이수 원칙 — 대수·미적분Ⅰ·확률과통계(지정)+기하(D군)+미적분Ⅱ(H군) 경일고 완전 이수 가능 ✅'},
+      ]
+    },
+    { name:'건축·토목·환경공학', sub:'구조 / 도시계획 / 인프라',
+      univs:{top:['고려대','서울대'],nor:['중앙대','서울시립대','부산대','아주대']},
+      univNote:'중앙대 토목: 미적분Ⅱ·기하+물리학·화학+역학과에너지·전자기와양자',
+      core:[
+        {name:'미적분Ⅱ', dot:'must'},{name:'기하', dot:'must'},
+        {name:'물리학', dot:'key'},{name:'역학과 에너지', dot:'key'},
+      ],
+      rec:[{name:'물질과 에너지', dot:'nice'},{name:'전자기와 양자', dot:'nice'}],
+      alt:[{name:'지구과학', dot:'neutral'}],
+      risk:[]
+    },
+    { name:'생명과학·생물학', sub:'분자생물 / 유전공학 / 식품생명',
+      univs:{top:['고려대','서울대'],nor:['경희대','중앙대','부산대','충남대']},
+      univNote:'서울대: 생명과학(일반)+진로선택 3과목 이상 / 고려대: 미적분Ⅱ+물질과에너지·화반·세포물질대사·생물유전 中 2개',
+      core:[
+        {name:'세포와 물질대사', dot:'must'},{name:'생물의 유전', dot:'must'},
+        {name:'생명과학', dot:'key'},{name:'화학', dot:'key'},
+      ],
+      rec:[{name:'미적분Ⅱ', dot:'nice'},{name:'물질과 에너지', dot:'nice'},{name:'화학 반응의 세계', dot:'nice'}],
+      alt:[{name:'생명과학 실험', dot:'neutral'}],
+      risk:[
+        {level:'warn', text:'생명과학(B군·택3) → 세포와물질대사(E군·택3) → 생물의유전(I군·택3) — 경일고 3단계 완성 가능 ✅'},
+      ]
+    },
+    { name:'환경·에너지·원자력공학', sub:'신재생에너지 / 기후과학 / 원자력',
+      univs:{nor:['경희대','부산대','충남대','아주대']},
+      univNote:'경희대 원자력: 미적분Ⅱ·기하+물리학·화학·물질과에너지·역학과에너지',
+      core:[
+        {name:'미적분Ⅱ', dot:'must'},{name:'역학과 에너지', dot:'must'},
+      ],
+      rec:[{name:'물질과 에너지', dot:'nice'},{name:'화학 반응의 세계', dot:'nice'},{name:'지구과학', dot:'nice'}],
+      alt:[{name:'지구시스템과학', dot:'neutral'},{name:'기후변화와 환경생태', dot:'neutral'}],
+      risk:[]
+    },
+  ]
+ },
+ { id:'의약', label:'의약보건계열', color:'#10b981',
+   note:'공통 패턴: 미적분Ⅱ(H군·택1) + 화학·생명과학 진로선택 각 2과목 — 경일고 B·E·I군 택3으로 전부 충족 가능',
+   careers:[
+    { name:'의학·치의학', sub:'의대 / 치대 / 한의대',
+      univs:{top:['고려대','서울대'],nor:['경희대','중앙대','부산대','충남대','아주대']},
+      univNote:'서울대 의대: 기하·미적분Ⅱ + 생명과학(일반) + 세포와물질대사·생물의유전 포함 3과목 이상',
+      core:[
+        {name:'미적분Ⅱ', dot:'must'},
+        {name:'세포와 물질대사', dot:'must'},{name:'생물의 유전', dot:'must'},
+        {name:'물질과 에너지', dot:'must'},{name:'화학 반응의 세계', dot:'must'},
+      ],
+      rec:[{name:'화학', dot:'key'},{name:'생명과학', dot:'key'},{name:'기하', dot:'nice'}],
+      alt:[{name:'생명과학 실험', dot:'neutral'}],
+      risk:[
+        {level:'danger', text:'세포와물질대사(E군·택3)+생물의유전(I군·택3) — 경일고 동시 이수 가능. 반드시 선택 목록에 포함'},
+        {level:'danger', text:'수능 과탐 화학·생명과학 선택과 학교 이수 과목 일치 확인 필수'},
+        {level:'warn', text:'서울대: 기하(D군·택1) 추가 이수 권장 — 국어·영어 포기 필요'},
+      ]
+    },
+    { name:'약학', sub:'약대 6년제',
+      univs:{top:['서울대'],nor:['중앙대','충남대','아주대','부산대']},
+      univNote:'중앙대 약학: 미적분Ⅱ·기하+생명과학·화학+물질과에너지·화반·세포물질대사·생물유전 中 3개 이상',
+      core:[
+        {name:'미적분Ⅱ', dot:'must'},
+        {name:'물질과 에너지', dot:'must'},{name:'화학 반응의 세계', dot:'must'},
+        {name:'세포와 물질대사', dot:'must'},
+      ],
+      rec:[{name:'화학', dot:'key'},{name:'생명과학', dot:'key'},{name:'기하', dot:'nice'},{name:'생물의 유전', dot:'nice'}],
+      alt:[{name:'화학 실험', dot:'neutral'}],
+      risk:[
+        {level:'danger', text:'화학(B군·택3)+물질과에너지(E군·택3)+화학반응의세계(I군·택3) — 경일고 동시 이수 가능 ✅'},
+      ]
+    },
+    { name:'간호학', sub:'간호대학',
+      univs:{top:['고려대','서울대'],nor:['충남대','부산대','아주대','인하대']},
+      univNote:'서울대: 기하 또는 미적분Ⅱ / 고려대: 미적분Ⅱ+생명과학 진로선택 2개 이상',
+      core:[
+        {name:'미적분Ⅱ', dot:'must'},
+        {name:'세포와 물질대사', dot:'must'},{name:'생물의 유전', dot:'must'},
+      ],
+      rec:[{name:'생명과학', dot:'key'},{name:'화학', dot:'nice'}],
+      alt:[{name:'물질과 에너지', dot:'neutral'}],
+      risk:[
+        {level:'warn', text:'실질 병목 없음 — 생명과학(B)+세포와물질대사(E)+생물의유전(I)+미적분Ⅱ(H) 경일고 완전 이수 가능 ✅'},
+      ]
+    },
+    { name:'수의학·보건학', sub:'수의대 / 의생명 / 임상병리',
+      univs:{top:['서울대'],nor:['부산대','충남대']},
+      univNote:'부산대 수의예: 화학·생명과학 진로선택 3과목 이상',
+      core:[
+        {name:'미적분Ⅱ', dot:'must'},
+        {name:'세포와 물질대사', dot:'must'},{name:'생물의 유전', dot:'must'},
+      ],
+      rec:[{name:'물질과 에너지', dot:'nice'},{name:'역학과 에너지', dot:'nice'}],
+      alt:[{name:'기하', dot:'neutral'}],
+      risk:[]
+    },
+  ]
+ },
+ { id:'인문사회', label:'인문사회계열', color:'#f59e0b',
+   note:'대부분 대학 인문계열 권장과목 미지정 — 경일고 B·E군 사회 과목 택3으로 폭넓게 선택 가능',
+   careers:[
+    { name:'법학·행정학', sub:'로스쿨 / 공무원 / 정책',
+      univs:{nor:['서울시립대','국민대','단국대','충북대']},
+      univNote:'서울시립대: 국어·영어·수학·사회 포괄 권장 / 대부분 자율 선택',
+      core:[
+        {name:'사회와 문화', dot:'must'},{name:'현대사회와 윤리', dot:'must'},
+        {name:'화법과 언어', dot:'key'},{name:'독서와 작문', dot:'key'},
+      ],
+      rec:[{name:'법과 사회', dot:'nice'},{name:'확률과 통계', dot:'nice'},{name:'정치', dot:'nice'}],
+      alt:[{name:'윤리와 사상', dot:'neutral'}],
+      risk:[
+        {level:'warn', text:'사회와문화·현대사회와윤리·법과사회 — B군 택3으로 동시 이수 가능 ✅'},
+      ]
+    },
+    { name:'경영·경제학', sub:'경영 / 금융 / 무역',
+      univs:{nor:['서울시립대','건국대','국민대','부산대']},
+      univNote:'서울시립대 경영: 수학·영어 핵심 / 부산대: 확률과통계·미적분Ⅰ·미적분Ⅱ 中 1과목',
+      core:[
+        {name:'확률과 통계', dot:'must'},{name:'경제', dot:'must'},
+      ],
+      rec:[{name:'경제 수학', dot:'nice'},{name:'미적분Ⅱ', dot:'nice'},{name:'금융과 경제생활', dot:'nice'}],
+      alt:[{name:'사회와 문화', dot:'neutral'}],
+      risk:[
+        {level:'warn', text:'H군 택1: 미적분Ⅱ vs 경제수학 — 빅데이터 경영→미적분Ⅱ, 금융·회계→경제수학 전략 분기'},
+      ]
+    },
+    { name:'사회학·심리학·사회복지', sub:'사회학 / 상담심리 / 복지',
+      univs:{nor:['충남대','서울시립대','국민대']},
+      univNote:'충남대: 확률과통계 권장 / 대부분 자율',
+      core:[
+        {name:'사회와 문화', dot:'must'},{name:'확률과 통계', dot:'key'},
+      ],
+      rec:[{name:'인간과 심리', dot:'nice'},{name:'현대사회와 윤리', dot:'nice'}],
+      alt:[{name:'사회문제 탐구', dot:'neutral'}],
+      risk:[]
+    },
+    { name:'언론·미디어', sub:'저널리즘 / 방송 / 광고홍보',
+      univs:{nor:['국민대','건국대']},
+      univNote:'국민대 미디어광고: 확률과 통계 권장',
+      core:[
+        {name:'화법과 언어', dot:'must'},{name:'독서와 작문', dot:'must'},
+      ],
+      rec:[{name:'확률과 통계', dot:'nice'},{name:'사회와 문화', dot:'nice'},{name:'매체 의사소통', dot:'nice'}],
+      alt:[{name:'문학', dot:'neutral'}],
+      risk:[]
+    },
+    { name:'국어국문·영어영문', sub:'국문학 / 영문학 / 번역',
+      univs:{nor:['서울시립대','국민대','충북대']},
+      univNote:'강원대: 국어교과 핵심 이수 권장',
+      core:[
+        {name:'독서와 작문', dot:'must'},{name:'문학', dot:'must'},
+        {name:'영어Ⅰ', dot:'key'},{name:'영어 독해와 작문', dot:'key'},
+      ],
+      rec:[{name:'독서 토론과 글쓰기', dot:'nice'},{name:'언어생활 탐구', dot:'nice'}],
+      alt:[{name:'매체 의사소통', dot:'neutral'}],
+      risk:[]
+    },
+    { name:'역사·철학', sub:'사학 / 철학 / 고고학',
+      univs:{nor:['경북대','국민대','충북대']},
+      univNote:'경북대: 세계사·사회와문화·동아시아역사기행 中 2과목 이상',
+      core:[
+        {name:'세계사', dot:'must'},{name:'동아시아 역사 기행', dot:'must'},
+      ],
+      rec:[{name:'윤리와 사상', dot:'nice'},{name:'사회와 문화', dot:'nice'}],
+      alt:[{name:'세계시민과 지리', dot:'neutral'}],
+      risk:[
+        {level:'warn', text:'세계사(B군·택3)+동아시아역사기행(E군·택3) — 경일고 동시 이수 가능 ✅'},
+      ]
+    },
+  ]
+ },
+ { id:'교육', label:'교육계열', color:'#8b5cf6',
+   note:'교대: 전 교과 균형 이수 원칙 / 중등교육: 지망 교과 집중 이수',
+   careers:[
+    { name:'초등교육(교대)', sub:'초등교사',
+      univs:{nor:[]},
+      univNote:'교대는 별도 권장과목 미발표 — 교부 방침상 전 교과 균형',
+      core:[
+        {name:'확률과 통계', dot:'key'},{name:'화법과 언어', dot:'key'},
+      ],
+      rec:[{name:'사회와 문화', dot:'nice'},{name:'생명과학', dot:'nice'}],
+      alt:[],
+      risk:[
+        {level:'danger', text:'특정 교과 극단적 편중 — 교대 균형성 평가 마이너스'},
+        {level:'warn', text:'수능 국·수·영·사/과 균형 유지 전략 병행 필수'},
+      ]
+    },
+    { name:'수학교육', sub:'중등 수학교사',
+      univs:{top:['고려대','서울대'],nor:['충남대','부산대']},
+      univNote:'고려대: 미적분Ⅱ·기하 필수 / 충남대: 대수·미적분Ⅰ·확률과통계+기하·미적분Ⅱ',
+      core:[
+        {name:'미적분Ⅱ', dot:'must'},{name:'기하', dot:'must'},{name:'확률과 통계', dot:'must'},
+        {name:'대수', dot:'key'},{name:'미적분Ⅰ', dot:'key'},
+      ],
+      rec:[{name:'인공지능 수학', dot:'nice'}],
+      alt:[{name:'고급 미적분', dot:'neutral'}],
+      risk:[
+        {level:'warn', text:'경일고 수학 전 과목 이수 가능 — 대수·미적분Ⅰ·확률(지정)+기하(D군)+미적분Ⅱ(H군) ✅'},
+      ]
+    },
+    { name:'과학교육(물·화·생·지)', sub:'중등 과학교사',
+      univs:{top:['서울대'],nor:['충남대','부산대']},
+      univNote:'서울대: 지망 과학 일반선택+진로선택 3과목 이상',
+      core:[
+        {name:'물리학', dot:'must'},{name:'역학과 에너지', dot:'must'},
+      ],
+      rec:[{name:'전자기와 양자', dot:'nice'},{name:'화학', dot:'nice'},{name:'생명과학', dot:'nice'}],
+      alt:[{name:'융합과학 탐구', dot:'neutral'}],
+      risk:[
+        {level:'danger', text:'지망 과목 진로선택 미이수 시 해당 교육과 전공 적합성 치명적 약화'},
+      ]
+    },
+    { name:'특수교육', sub:'장애학생 교육 / 재활',
+      univs:{nor:[]},
+      univNote:'대부분 자율 선택 — 봉사·공감 세특 연계 핵심',
+      core:[
+        {name:'현대사회와 윤리', dot:'key'},{name:'사회와 문화', dot:'key'},
+      ],
+      rec:[{name:'인간과 심리', dot:'nice'},{name:'생명과학', dot:'nice'}],
+      alt:[{name:'생태와 환경', dot:'neutral'}],
+      risk:[]
+    },
+  ]
+ },
+ { id:'예체능', label:'예체능계열', color:'#ec4899',
+   note:'실기 외 학업 역량 세특 병행 필수 — 경일고 J군(음악·미술 감상과비평) 택1',
+   careers:[
+    { name:'미술·시각디자인·UX', sub:'순수미술 / 디자인 / UX/UI',
+      univs:{nor:[]},
+      univNote:'실기+포트폴리오 중심 — 학업 역량 세특 병행 필수',
+      core:[{name:'미술 감상과 비평', dot:'key'}],
+      rec:[{name:'기하', dot:'nice'},{name:'정보', dot:'nice'}],
+      alt:[{name:'인공지능 기초', dot:'neutral'}],
+      risk:[{level:'warn', text:'학업 역량 세특 없이 실기만 강조 시 학생부종합 불리'}]
+    },
+    { name:'음악', sub:'기악 / 성악 / 작곡',
+      univs:{nor:[]},
+      univNote:'실기 중심 — 음향공학·음악치료 확장 시 물리학·수학 이수 가치',
+      core:[{name:'음악 감상과 비평', dot:'key'}],
+      rec:[{name:'물리학', dot:'nice'},{name:'대수', dot:'nice'}],
+      alt:[],
+      risk:[]
+    },
+    { name:'체육·스포츠과학', sub:'체육학 / 스포츠의학',
+      univs:{nor:[]},
+      univNote:'스포츠과학·데이터 분석 전공 확장 시 생명과학+통계 조합 유리',
+      core:[{name:'확률과 통계', dot:'key'},{name:'생명과학', dot:'key'}],
+      rec:[{name:'물리학', dot:'nice'}],
+      alt:[{name:'융합과학 탐구', dot:'neutral'}],
+      risk:[]
+    },
+  ]
+ },
+];
+
+// ── 렌더 ──
+function subjectRow(s) {
+  return `<div class="subj-item">
+    <div class="subj-dot" style="background:${dotColor[s.dot]}"></div>
+    <div class="subj-info">
+      <div class="subj-name" onclick="renderModal('${s.name.replace(/'/g,"\\'")}')">
+        ${s.name} <span style="font-size:10px;color:#3b82f688;margin-left:3px">▸</span>
+      </div>
+      <div class="subj-where">${whereTag(s.name)}</div>
+    </div>
+  </div>`;
+}
+
+function cardHTML(c) {
+  const univHTML = [
+    ...(c.univs.top||[]).map(u=>`<span class="univ-tag top">${u}</span>`),
+    ...(c.univs.nor||[]).map(u=>`<span class="univ-tag nor">${u}</span>`),
+  ].join('');
+
+  const riskHTML = c.risk.length ? `<div class="risk-area">
+    ${c.risk.map(r=>`<div class="risk-item ${r.level}">
+      <span class="risk-icon">${r.level==='danger'?'🔴':'⚠️'}</span>
+      <span>${r.text}</span>
+    </div>`).join('')}
+  </div>` : '';
+
+  return `<div class="card" data-name="${c.name}" data-sub="${c.sub}">
+    <div class="card-head">
+      <div class="career-cell">
+        <div class="career-name">${c.name}</div>
+        <div class="career-sub">${c.sub}</div>
+        <div class="career-univs">${univHTML}</div>
+      </div>
+      <div class="univ-note-cell">${c.univNote}</div>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="subj-col-title">🔴 핵심과목 (진로필수)</div>
+        ${c.core.map(subjectRow).join('')}
+      </div>
+      <div>
+        <div class="subj-col-title">🟡 권장과목</div>
+        ${c.rec.map(subjectRow).join('')}
+      </div>
+      <div>
+        <div class="subj-col-title">⚪ 대안·추가 과목</div>
+        ${c.alt.map(subjectRow).join('')}
+      </div>
+    </div>
+    ${riskHTML}
+  </div>`;
+}
+
+function render(gFilter='all', search='') {
+  const container = document.getElementById('container');
+  container.innerHTML = '';
+  let total = 0;
+
+  groups.forEach(g => {
+    if (gFilter !== 'all' && gFilter !== g.id) return;
+
+    const filtered = g.careers.filter(c => {
+      if (!search) return true;
+      const t = search.toLowerCase();
+      const all = c.name+c.sub+c.core.map(s=>s.name).join()+c.rec.map(s=>s.name).join()+c.alt.map(s=>s.name).join();
+      return all.toLowerCase().includes(t);
+    });
+
+    if (!filtered.length) return;
+    total += filtered.length;
+
+    const sec = document.createElement('div');
+    sec.className = 'group-sec';
+    sec.innerHTML = `
+      <div class="group-hdr">
+        <div class="group-bar" style="background:${g.color}"></div>
+        <h2 style="color:${g.color}">${g.label}</h2>
+        <span class="group-cnt">${filtered.length}개 진로</span>
+        <span class="group-note">${g.note}</span>
+      </div>
+      <div class="cards">${filtered.map(cardHTML).join('')}</div>
+    `;
+    container.appendChild(sec);
+  });
+
+  document.getElementById('noRes').style.display = total ? 'none' : 'block';
+}
+
+document.querySelectorAll('.fbtn').forEach(b => {
+  b.addEventListener('click', () => {
+    document.querySelectorAll('.fbtn').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    render(b.dataset.g, document.getElementById('srch').value);
+  });
+});
+
+document.getElementById('srch').addEventListener('input', e => {
+  render(document.querySelector('.fbtn.active').dataset.g, e.target.value);
+});
+
+render();
+</script>
+</body>
+</html>
